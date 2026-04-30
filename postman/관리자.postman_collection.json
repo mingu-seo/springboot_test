@@ -1,0 +1,42 @@
+{
+  "info": {
+    "_postman_id": "4aa3af7f-09e0-4fb1-9c98-8f9decb5525d",
+    "name": "관리자",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "31838857",
+    "_collection_link": "https://go.postman.co/collection/31838857-4aa3af7f-09e0-4fb1-9c98-8f9decb5525d?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "회원조회",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwiZW1haWwiOiJ0ZXN0QGV4YW1wbGUuY29tIiwicm9sZSI6IlVTRVIiLCJpYXQiOjE3NzYxNTQ3NDQsImV4cCI6MTc3NjE1NjU0NH0.QrySRYWWqUj1pySUTfdwvk6scfjglz4W1lxhor4i6ww",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/admin/users",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "admin",
+            "users"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}

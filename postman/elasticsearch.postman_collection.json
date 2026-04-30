@@ -1,0 +1,162 @@
+{
+  "info": {
+    "_postman_id": "9ab469c9-e3ed-4de2-80f8-3f9fbd88ce3b",
+    "name": "elasticsearch",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "31838857",
+    "_collection_link": "https://go.postman.co/collection/31838857-9ab469c9-e3ed-4de2-80f8-3f9fbd88ce3b?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "인덱스확인",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:9200/_cat/indices?v&pretty",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "9200",
+          "path": [
+            "_cat",
+            "indices"
+          ],
+          "query": [
+            {
+              "key": "v",
+              "value": null
+            },
+            {
+              "key": "pretty",
+              "value": null
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "로그한건",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:9200/emotiondiary-*/_search?pretty&size=1",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "9200",
+          "path": [
+            "emotiondiary-*",
+            "_search"
+          ],
+          "query": [
+            {
+              "key": "pretty",
+              "value": null
+            },
+            {
+              "key": "size",
+              "value": "1"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "상세 에러",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwiZW1haWwiOiJ0ZXN0QGV4YW1wbGUuY29tIiwicm9sZSI6IlVTRVIiLCJpYXQiOjE3NzY5MTAyMzQsImV4cCI6MTc3NjkxMjAzNH0.Y8h-X0Tm4GOVd31vy06SWPdQssUvdxW_sNqwvGO-FyQ",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/diaries/27da29cb-939f-41bd-9268-250fc4aa9a6a",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "diaries",
+            "27da29cb-939f-41bd-9268-250fc4aa9a6a"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "회원등록 에러",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"email\":\"testexample.com\",\"password\":\"test1234\",\"nickname\":\"홍길동\"}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/auth/signup",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "auth",
+            "signup"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "존재하지않는URL",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwiZW1haWwiOiJ0ZXN0QGV4YW1wbGUuY29tIiwicm9sZSI6IlVTRVIiLCJpYXQiOjE3NzY5MTAyMzQsImV4cCI6MTc3NjkxMjAzNH0.Y8h-X0Tm4GOVd31vy06SWPdQssUvdxW_sNqwvGO-FyQ",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/unknown",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "unknown"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}

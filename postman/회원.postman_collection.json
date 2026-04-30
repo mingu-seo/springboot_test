@@ -1,0 +1,138 @@
+{
+  "info": {
+    "_postman_id": "11719471-c9bd-4b71-a001-09d70befe656",
+    "name": "회원",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "31838857",
+    "_collection_link": "https://go.postman.co/collection/31838857-11719471-c9bd-4b71-a001-09d70befe656?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "등록",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"email\":\"demo@test.com\",\"password\":\"pw12345!\",\"name\":\"Demo\",\"nickname\": \"demo\"}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/auth/signup",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "auth",
+            "signup"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "로그인",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "X-Trace-Id",
+            "value": "abcdefg2",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"email\":\"demo@test.com\",\"password\":\"pw12345!\"}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/auth/login",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "auth",
+            "login"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "재발급",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"refreshToken\":\"eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwiaWF0IjoxNzc2MTUxMDk2LCJleHAiOjE3NzYyMzc0OTZ9.ZMAQe91DWbhwwWh4ZXEG3Us3OjG9xGF-4VnZBihUTo0\"}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/auth/reissue",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "auth",
+            "reissue"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "로그아웃",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwiZW1haWwiOiJ0ZXN0QGV4YW1wbGUuY29tIiwicm9sZSI6IlVTRVIiLCJpYXQiOjE3NzYxNTEzMDAsImV4cCI6MTc3NjE1MzEwMH0.IALkfwvm2UtUfnDgijGDm2UmlyxLH0pbzI1RHofuFUI",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/auth/logout",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "auth",
+            "logout"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
