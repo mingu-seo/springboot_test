@@ -1,0 +1,256 @@
+{
+    "root_group": {
+        "id": "d41d8cd98f00b204e9800998ecf8427e",
+        "groups": {
+            "list diaries": {
+                "name": "list diaries",
+                "path": "::list diaries",
+                "id": "36331ae7ca1e57a1bad76745e25b21ff",
+                "groups": {},
+                "checks": {
+                        "list 200": {
+                            "name": "list 200",
+                            "path": "::list diaries::list 200",
+                            "id": "642ee6591f91c00c017e36122b68bec1",
+                            "passes": 3112,
+                            "fails": 0
+                        }
+                    }
+            },
+            "create diary": {
+                "name": "create diary",
+                "path": "::create diary",
+                "id": "e1a7917fd670c2b910531c42d2062b3c",
+                "groups": {},
+                "checks": {
+                        "create 201": {
+                            "fails": 0,
+                            "name": "create 201",
+                            "path": "::create diary::create 201",
+                            "id": "3e723b0deab87e2fe4928aa79ec74f9e",
+                            "passes": 3112
+                        },
+                        "has id": {
+                            "path": "::create diary::has id",
+                            "id": "4cd566777aaeed1bb7051900e9c12441",
+                            "passes": 3112,
+                            "fails": 0,
+                            "name": "has id"
+                        }
+                    }
+            },
+            "update diary": {
+                "groups": {},
+                "checks": {
+                        "update 200": {
+                            "fails": 0,
+                            "name": "update 200",
+                            "path": "::update diary::update 200",
+                            "id": "b5d60f18daf90baa093f54ed151453c7",
+                            "passes": 3112
+                        }
+                    },
+                "name": "update diary",
+                "path": "::update diary",
+                "id": "ed150f76e0070f08e97bac49553d855d"
+            },
+            "delete diary": {
+                "checks": {
+                    "delete 204": {
+                        "name": "delete 204",
+                        "path": "::delete diary::delete 204",
+                        "id": "135f731d20d2ab7d3cae18db0793de32",
+                        "passes": 3112,
+                        "fails": 0
+                    }
+                },
+                "name": "delete diary",
+                "path": "::delete diary",
+                "id": "37a412623102388815574500ac51dfc6",
+                "groups": {}
+            }
+        },
+        "checks": {},
+        "name": "",
+        "path": ""
+    },
+    "metrics": {
+        "http_req_duration{name:diary-delete}": {
+            "max": 117.846407,
+            "p(90)": 16.173939,
+            "p(95)": 18.85954215,
+            "avg": 10.481523348329059,
+            "min": 4.259847,
+            "med": 9.125706000000001,
+            "thresholds": {
+                "p(95)<500": false
+            }
+        },
+        "http_req_waiting": {
+            "avg": 9.052452589605563,
+            "min": 1.997727,
+            "med": 7.945668,
+            "max": 121.130037,
+            "p(90)": 15.006077800000002,
+            "p(95)": 18.05185619999998
+        },
+        "http_req_connecting": {
+            "med": 0,
+            "max": 14.554869,
+            "p(90)": 0,
+            "p(95)": 0,
+            "avg": 0.027112683589043302,
+            "min": 0
+        },
+        "http_req_receiving": {
+            "max": 13.904274,
+            "p(90)": 0.30750180000000005,
+            "p(95)": 0.4431327999999999,
+            "avg": 0.12450230950277168,
+            "min": 0.006617,
+            "med": 0.059913
+        },
+        "vus": {
+            "value": 1,
+            "min": 0,
+            "max": 100
+        },
+        "http_req_duration{name:diary-create}": {
+            "min": 4.329319,
+            "med": 8.818687,
+            "max": 118.337375,
+            "p(90)": 15.787808799999999,
+            "p(95)": 19.24303559999999,
+            "avg": 10.26082234350899,
+            "thresholds": {
+                "p(95)<800": false
+            }
+        },
+        "http_req_blocked": {
+            "min": 0.000618,
+            "med": 0.003847,
+            "max": 14.614057,
+            "p(90)": 0.0095524,
+            "p(95)": 0.01302819999999999,
+            "avg": 0.03330067740380746
+        },
+        "data_received": {
+            "count": 23554926,
+            "rate": 97021.21525233319
+        },
+        "flow_duration": {
+            "avg": 4042.410025706941,
+            "min": 4019,
+            "med": 4039,
+            "max": 4173,
+            "p(90)": 4060,
+            "p(95)": 4068,
+            "thresholds": {
+                "p(95)<5000": false
+            }
+        },
+        "data_sent": {
+            "count": 4887349,
+            "rate": 20130.67412490599
+        },
+        "checks": {
+            "passes": 15560,
+            "fails": 0,
+            "value": 1
+        },
+        "http_req_duration": {
+            "max": 121.316532,
+            "p(90)": 15.1713058,
+            "p(95)": 18.211080199999987,
+            "avg": 9.203403981363978,
+            "min": 2.059879,
+            "med": 8.060021
+        },
+        "group_duration": {
+            "p(90)": 15.414058000000006,
+            "p(95)": 18.455650399999993,
+            "avg": 9.345953992046924,
+            "min": 2.101156,
+            "med": 8.175342,
+            "max": 121.589394
+        },
+        "http_req_duration{name:diary-list}": {
+            "avg": 5.007237454370184,
+            "min": 2.059879,
+            "med": 4.416017500000001,
+            "max": 26.748121,
+            "p(90)": 7.551461000000001,
+            "p(95)": 9.500222799999994,
+            "thresholds": {
+                "p(95)<500": false
+            }
+        },
+        "http_req_duration{name:diary-update}": {
+            "avg": 11.041666547557838,
+            "min": 4.339878,
+            "med": 9.643820999999999,
+            "max": 121.316532,
+            "p(90)": 17.158364000000002,
+            "p(95)": 20.131002699999993,
+            "thresholds": {
+                "p(95)<800": false
+            }
+        },
+        "iterations": {
+            "count": 3112,
+            "rate": 12.818126529680496
+        },
+        "http_reqs": {
+            "count": 12449,
+            "rate": 51.27662505398216
+        },
+        "http_req_sending": {
+            "p(95)": 0.07636739999999988,
+            "avg": 0.02644908225560283,
+            "min": 0.002577,
+            "med": 0.019732,
+            "max": 0.818399,
+            "p(90)": 0.052912400000000005
+        },
+        "http_req_failed": {
+            "passes": 0,
+            "fails": 12449,
+            "thresholds": {
+                "rate<0.01": false
+            },
+            "value": 0
+        },
+        "http_req_duration{expected_response:true}": {
+            "avg": 9.203403981363978,
+            "min": 2.059879,
+            "med": 8.060021,
+            "max": 121.316532,
+            "p(90)": 15.1713058,
+            "p(95)": 18.211080199999987
+        },
+        "http_req_tls_handshaking": {
+            "avg": 0,
+            "min": 0,
+            "med": 0,
+            "max": 0,
+            "p(90)": 0,
+            "p(95)": 0
+        },
+        "vus_max": {
+            "value": 100,
+            "min": 100,
+            "max": 100
+        },
+        "iteration_duration": {
+            "max": 4150.492143,
+            "p(90)": 4052.4850576000003,
+            "p(95)": 4058.6391221,
+            "avg": 4039.194365021523,
+            "min": 4019.000567,
+            "med": 4036.7770375
+        }
+    },
+    "setup_data": {
+        "token": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyIiwiZW1haWwiOiJrNkB0ZXN0LmNvbSIsInJvbGUiOiJVU0VSIiwiaWF0IjoxNzc2ODI2MjE4LCJleHAiOjE3NzY4MjgwMTh9.st3r92He98mOQ1dqhMBsyFsq5fXPm1MH8fyWrV_O0OY"
+    }
+}

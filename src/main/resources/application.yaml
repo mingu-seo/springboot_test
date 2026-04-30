@@ -1,0 +1,73 @@
+spring:
+  application:
+    name: emotiondiary
+  profiles:
+    active: local
+  datasource:
+    driver-class-name: org.mariadb.jdbc.Driver
+    url: ${SPRING_DATASOURCE_URL}
+    username: ${SPRING_DATASOURCE_USERNAME}
+    password: ${SPRING_DATASOURCE_PASSWORD}
+
+  jpa:
+    hibernate:
+      ddl-auto: update # 운영에서는 update로 하면 안됨
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+
+  web:
+    resources:
+      cache:
+        cachecontrol:
+          max-age: 30d
+          cache-public: true
+      # 콘텐츠 해시 기반 지문(fingerprint) — app.min.css → app.min.abc123.css
+      # 바뀌면 URL 이 바뀌어 캐시 무효화가 자동
+      chain:
+        strategy:
+          content:
+            enabled: true
+            paths: /**
+
+jwt:
+  member:
+    secret: ${JWT_MEMBER_SECRET}
+    access-exp-min: 30
+    refresh-exp-min: 1440
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health, info, prometheus, metrics
+  endpoint:
+    health:
+      show-details: when-authorized
+  metrics:
+    tags:
+      application: emotiondiary       # 모든 지표에 기본 라벨을 붙임
+    distribution:
+      # http.server.requests 에 대해 히스토그램 버킷 방출 (p95/p99 계산용)
+      # - 기본값은 false 라 histogram_quantile() 이 Empty result 가 됨
+      percentiles-histogram:
+        http.server.requests: true
+      # (선택) Spring Boot 가 서버측에서 미리 계산한 percentile 도 같이 노출
+      # → Grafana 에서 histogram_quantile 없이도 직접 쿼리 가능
+      percentiles:
+        http.server.requests: 0.5, 0.95, 0.99
+      # 버킷 경계(초) — 웹 요청 응답시간 분포에 맞춘 설정
+      sla:
+        http.server.requests: 10ms, 50ms, 100ms, 200ms, 500ms, 1s, 2s
+
+server:
+  # 정적 리소스 응답에 gzip 적용
+  compression:
+    enabled: true
+    # ※ Spring Boot 는 .js 를 text/javascript 로 서빙 (IANA RFC 9239)
+    #   application/javascript 만 적으면 JS 파일이 압축되지 않음 — 둘 다 적기
+    mime-types: text/html,text/css,text/javascript,application/javascript,application/json,image/svg+xml
+    # ※ 임계값을 너무 크게 잡으면 작은 파일이 압축되지 않아
+    #   Network 탭에서 Content-Encoding: gzip 이 안 찍힘 — 1KB 권장
+    min-response-size: 1KB
